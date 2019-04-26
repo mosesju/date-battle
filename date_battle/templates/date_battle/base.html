@@ -1,0 +1,26 @@
+{% load static %}
+<html>
+	<head>
+		<title>Compete Hard</title>
+		<!--Add Style sheets here-->
+	</head>
+
+	<body>
+		<div class = "page-header">
+			<h1><a href="/">Compete Hard</a></h1>
+			{% if user.is_authenticated %}
+				<p>Hello {{ user.username }} <a href ="{% url 'logout' %}">Log Out</a></p>
+			{% else %}
+				<a href="{% url 'register' %}" class="top-menu">Sign-Up</a>
+				<a href="{% url 'login' %}" class="top-menu">Login</a>
+			{% endif %}
+		</div>
+		<div class = "content-container">
+			{% block content%}
+			{% endblock %}
+		</div>
+		<div class = "page-footer">
+			<p>Remember always that you're expendable. That's not pessimism, it's how to get ahead. People tend to get complacent when they do well and think that the world owes them something. Fight like you've got nothing to lose and you'll win a lot more.</p>
+		</div>
+	</body>
+</html>

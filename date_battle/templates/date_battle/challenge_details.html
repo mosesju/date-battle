@@ -1,0 +1,14 @@
+{% extends 'date_battle/base.html' %}
+
+{% block content %}
+{%for challenge in challenge %}
+	<div class = 'challenge-info'>
+		<h2>{{ challenge.title|linebreaksbr }}</h2>
+		<h4>Creator: {{ challenge.creator }}</h4>
+		<h4>Prize: {{ challenge.prize }}</h4>
+		<h4>End-Date: {{ challenge.end_date }}</h4>
+	</div>
+	<a href="{% url 'entry_new' pk=challenge.pk%}">Add an Entry</a>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'date_battle/base.html' %}
+{% block content %}
+	<form method = "POST">
+		{% csrf_token %}
+		{{form}}
+		<button type="submit">Sign Up</button>
+	</form>
+	To <a href= "/login"><strong>Login</strong></a>
+{% endblock %}

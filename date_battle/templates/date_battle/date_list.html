@@ -1,0 +1,21 @@
+{% extends 'date_battle/base.html' %}
+
+{% block content %}
+{% csrf_token %}
+<div class = "new-challenge">
+	{% if user.is_authenticated %}
+	<a href="{% url 'challenge_new' %}" class="top-menu">Add new Challenge</a>
+	{% endif %}
+</div>
+
+{% for challenge in challenge %}
+	<div class="challenge">
+		<h2><a href="{% url 'challenge_rules' pk=challenge.pk %}">{{ challenge.title }}</a></h2>
+		<p>Rules: {{ challenge.rules|linebreaksbr }}</p>
+	</div>
+	
+	<div class="date">
+		<p>End-Date: {{ challenge.end_date }}</p>
+	</div>
+{% endfor %}
+{% endblock %}
